@@ -102,21 +102,22 @@ const Home = () => {
                 color: "from-blue-500 to-blue-600",
               },
               {
-                title: "Predictive",
-                description: "AI-driven risk assessment and forecasting",
-                icon: "🔮",
+                title: "Personalized ",
+                description:
+                  "Tailored treatments based on individual science bio profiling",
+                icon: "👤",
                 color: "from-green-500 to-green-600",
               },
               {
-                title: "Personalized",
-                description: "Tailored treatments based on individual profiles",
-                icon: "👤",
+                title: "Participative ",
+                description: "Regaining health through integrated approach",
+                icon: "🤝",
                 color: "from-purple-500 to-purple-600",
               },
               {
-                title: "Participative",
-                description: "Patient-centered collaborative care",
-                icon: "🤝",
+                title: "Predictive",
+                description: "AI-driven risk assessment and forecasting",
+                icon: "🔮",
                 color: "from-pink-500 to-pink-600",
               },
             ].map((item, index) => (
