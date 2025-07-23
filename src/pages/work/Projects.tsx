@@ -21,77 +21,78 @@ const Projects = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {[
             {
-              title: "AI-Driven Lung Disease Profiling",
-              category: "Research & Development",
+              title: "HER♀2 – Breathing Health into Women’s Work & Life",
+              category: "Women Empowerment",
               description:
-                "Advanced machine learning algorithms for early detection and personalized treatment of respiratory conditions.",
+                "ALVEO 4P’s HER♀2 initiative targets working-caregiver women’s respiratory health, tackling delayed lung-condition diagnosis caused by low awareness and scarce early screening.",
               image:
                 "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
               status: "Ongoing",
-              impact: "500+ patients screened",
+              impact:
+                "Empowers women with tools and knowledge to breathe better",
               features: [
-                "Deep learning diagnostic models",
-                "Biomarker identification",
-                "Predictive risk assessment",
-                "Personalized treatment protocols",
+                "On-site health assessments",
+                "Respiratory screenings",
+                "Lifestyle guidance delivered by pulmonology, yoga, and Ayurveda experts",
+                "Blend of modern medicine and traditional wellness",
               ],
               timeline: "2023-2025",
               funding: "₹2.5 Crores",
             },
-            {
-              title: "Rural Respiratory Health Initiative",
-              category: "Community Outreach",
-              description:
-                "Comprehensive healthcare delivery program targeting underserved rural populations across India.",
-              image:
-                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              status: "Expanding",
-              impact: "50+ villages reached",
-              features: [
-                "Mobile screening units",
-                "Community health education",
-                "Telemedicine consultations",
-                "Traditional medicine integration",
-              ],
-              timeline: "2022-2026",
-              funding: "₹1.8 Crores",
-            },
-            {
-              title: "Precision Medicine Platform",
-              category: "Technology Innovation",
-              description:
-                "Integrated digital platform combining genomics, environmental data, and clinical records for personalized care.",
-              image:
-                "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              status: "Development",
-              impact: "Multi-center deployment",
-              features: [
-                "Genomic data integration",
-                "Environmental factor analysis",
-                "Real-time monitoring",
-                "Clinical decision support",
-              ],
-              timeline: "2024-2027",
-              funding: "₹3.2 Crores",
-            },
-            {
-              title: "Youth Researcher Program",
-              category: "Education & Training",
-              description:
-                "Mentorship and funding program developing the next generation of respiratory health researchers.",
-              image:
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-              status: "Annual",
-              impact: "100+ researchers trained",
-              features: [
-                "Research fellowships",
-                "International collaborations",
-                "Patent support",
-                "Publication assistance",
-              ],
-              timeline: "Ongoing",
-              funding: "₹80 Lakhs/year",
-            },
+            // {
+            //   title: "Rural Respiratory Health Initiative",
+            //   category: "Community Outreach",
+            //   description:
+            //     "Comprehensive healthcare delivery program targeting underserved rural populations across India.",
+            //   image:
+            //     "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            //   status: "Expanding",
+            //   impact: "50+ villages reached",
+            //   features: [
+            //     "Mobile screening units",
+            //     "Community health education",
+            //     "Telemedicine consultations",
+            //     "Traditional medicine integration",
+            //   ],
+            //   timeline: "2022-2026",
+            //   funding: "₹1.8 Crores",
+            // },
+            // {
+            //   title: "Precision Medicine Platform",
+            //   category: "Technology Innovation",
+            //   description:
+            //     "Integrated digital platform combining genomics, environmental data, and clinical records for personalized care.",
+            //   image:
+            //     "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            //   status: "Development",
+            //   impact: "Multi-center deployment",
+            //   features: [
+            //     "Genomic data integration",
+            //     "Environmental factor analysis",
+            //     "Real-time monitoring",
+            //     "Clinical decision support",
+            //   ],
+            //   timeline: "2024-2027",
+            //   funding: "₹3.2 Crores",
+            // },
+            // {
+            //   title: "Youth Researcher Program",
+            //   category: "Education & Training",
+            //   description:
+            //     "Mentorship and funding program developing the next generation of respiratory health researchers.",
+            //   image:
+            //     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            //   status: "Annual",
+            //   impact: "100+ researchers trained",
+            //   features: [
+            //     "Research fellowships",
+            //     "International collaborations",
+            //     "Patent support",
+            //     "Publication assistance",
+            //   ],
+            //   timeline: "Ongoing",
+            //   funding: "₹80 Lakhs/year",
+            // },
           ].map((project, index) => (
             <Card
               key={index}
@@ -104,9 +105,9 @@ const Projects = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+                  {/* <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
                     {project.status}
-                  </span>
+                  </span> */}
                 </div>
                 <div className="absolute top-4 right-4">
                   <span className="bg-white/90 text-foreground px-3 py-1 rounded-full text-sm font-medium">
@@ -122,7 +123,7 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                {/* <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                   <div>
                     <span className="font-medium text-foreground">
                       Timeline:
@@ -139,7 +140,7 @@ const Projects = () => {
                       {project.funding}
                     </span>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="mb-4">
                   <div className="flex items-center space-x-2 text-sm text-primary font-medium">
@@ -160,12 +161,12 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <Button
+                {/* <Button
                   variant="outline"
                   className="w-full group-hover:bg-primary group-hover:text-white transition-colors"
                 >
                   View Details
-                </Button>
+                </Button> */}
               </CardContent>
             </Card>
           ))}

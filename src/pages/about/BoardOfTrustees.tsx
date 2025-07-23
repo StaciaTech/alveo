@@ -1,6 +1,12 @@
 import React from "react";
 import { Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import Supraja from "../../assets/images/trustees/Dr Supraja K.webp";
+import Pasupathy from "../../assets/images/trustees/Dr Pasupathy photo.webp";
+import Palaniappam from "../../assets/images/trustees/Dr Palaniappan.webp";
+import Sandilya from "../../assets/images/trustees/S SANDILYA.webp";
+import Nataraajan from "../../assets/images/trustees/T Nataraajan.webp";
+import Dhandapani from "../../assets/images/trustees/Dhandapani.webp";
 
 const BoardOfTrustees = () => {
   return (
@@ -21,50 +27,44 @@ const BoardOfTrustees = () => {
           {[
             {
               name: "Dr. Supraja.K",
-              role: "Trustee",
+              role: "Managing Trustee",
               specialty: "Pulmonology & Respiratory Medicine",
-              image:
-                "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+              image: Supraja,
               bio: "Leading pulmonologist with over 25 years of experience in respiratory medicine and clinical research.",
             },
             {
               name: "Dr. V Pasupathy",
               role: "Trustee",
               specialty: "Public Health & Epidemiology",
-              image:
-                "https://images.unsplash.com/photo-1594824204845-c5ae2d9a4b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+              image: Pasupathy,
               bio: "Renowned epidemiologist specializing in respiratory health outcomes and population health strategies.",
             },
             {
               name: "Dr. T Palaniappan ",
               role: "Trustee",
               specialty: "Biomedical Engineering",
-              image:
-                "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+              image: Palaniappam,
               bio: "Expert in biomedical technologies and AI applications in healthcare diagnostics.",
             },
             {
               name: "Mr. S Sandilya ",
               role: "Trustee",
               specialty: "Healthcare Administration",
-              image:
-                "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+              image: Sandilya,
               bio: "Healthcare administration expert with extensive experience in nonprofit financial management.",
             },
             {
               name: "Mr. T Nataraajan ",
               role: "Trustee",
               specialty: "Preventive Medicine",
-              image:
-                "https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+              image: Nataraajan,
               bio: "Preventive medicine specialist focused on community health and disease prevention strategies.",
             },
             {
               name: "Mr. T G Dhandapani",
               role: "Trustee",
               specialty: "Community Health",
-              image:
-                "https://images.unsplash.com/photo-1594824204845-c5ae2d9a4b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+              image: Dhandapani,
               bio: "Community health advocate with expertise in grassroots health education and outreach programs.",
             },
           ].map((member, index) => (
@@ -76,7 +76,7 @@ const BoardOfTrustees = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-top"
                 />
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {member.name}

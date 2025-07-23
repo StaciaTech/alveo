@@ -1,6 +1,12 @@
 import React from "react";
 import { Award, Target, Eye } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import AboutImg from "../../assets/svg/WhoPic.svg";
+import DnaImg from "../../assets/images/dnaimg.avif";
+import FamWithMask from "../../assets/images/famWithmask.jpg";
+import Yoga from "../../assets/images/meditating.webp";
+import DocWithThings from "../../assets/images/docWithThings.png";
+import CurveLine from "../../assets/svg/curveLine.svg";
 
 const Overview = () => {
   return (
@@ -45,12 +51,108 @@ const Overview = () => {
               their health, the way it was meant to be.
             </p>
           </div>
-          <div className="relative">
+          <div className="relative h-full flex items-center">
             <img
-              src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              src={AboutImg}
               alt="Medical research"
-              className="rounded-lg shadow-elegant w-full"
+              className=" w-[60%] m-auto"
             />
+            {/* <div className="w-[80%] m-auto">
+              <div className="flex w-full justify-between">
+                <div className="flex flex-col">
+                  <div className="text-[14px] font-bold">Preventive</div>
+                  <p className="flex-1 text-[12px]">No entry for spilers</p>
+                  <div className="text-end font-bold">P1</div>
+                </div>
+                <div>
+                  <div className="text-end text-[14px] font-bold">
+                    Personalized
+                  </div>
+                  <p className="text-end text-[12px]">
+                    Am Unique
+                    <br />
+                    genetics,metabolics,proteomics,
+                    <br />
+                    cell biology, cell sorting
+                  </p>
+                  <div className="text-center font-bold">P2</div>
+                </div>
+              </div>
+              <div className="w-[34%] relative rounded-full m-auto aspect-square border-[0.5rem] border-[#e8e8e8] grid place-items-center">
+                <div>
+                  <div className="text-center font-extrabold text-[1.25rem]">
+                    4P
+                  </div>
+                  <div className="text-center font-bold">concept</div>
+                </div>
+                <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] left-1/2 -translate-x-1/2 -top-[18.5%] p-[0.3rem]">
+                  <img
+                    src={DnaImg}
+                    alt=""
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <div className="absolute w-[60%] left-[95%] -translate-x-1/2 -top-[27%] p-[0.3rem]">
+                  <img
+                    src={CurveLine}
+                    alt=""
+                    className="w-full h-full scale-x-[-1] scale-y-[-1] rotate-12"
+                  />
+                </div>
+
+                <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] top-1/2 -translate-y-1/2 -left-[18.5%] p-[0.3rem]">
+                  <img
+                    src={FamWithMask}
+                    alt=""
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <div className="absolute w-[50%] -left-[25%] -translate-x-1/2 -top-[2%] p-[0.3rem]">
+                  <img
+                    src={CurveLine}
+                    alt=""
+                    className="w-full h-full scale-y-[-1] rotate-45"
+                  />
+                </div>
+
+                <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] left-1/2 -translate-x-1/2 -bottom-[18.5%] p-[0.3rem]">
+                  <img
+                    src={Yoga}
+                    alt=""
+                    className="w-full h-full object-cover rounded-full "
+                  />
+                </div>
+
+                <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] top-1/2 -translate-y-1/2 -right-[18.5%] p-[0.3rem]">
+                  <img
+                    src={DocWithThings}
+                    alt=""
+                    className="w-full h-full object-cover rounded-full object-right"
+                  />
+                </div>
+              </div>
+              <div className="flex w-full justify-between">
+                <div className="flex flex-col">
+                  <div className="text-center font-bold">P3</div>
+                  <div className="text-[14px] font-bold">Participative</div>
+                  <p className="flex-1 text-[12px]">
+                    Health is my wealth
+                    <br />I will earn it by participating
+                  </p>
+                </div>
+                <div>
+                  <div className="text-center font-bold">P4</div>
+                  <div className="text-end text-[14px] font-bold">
+                    Predictive
+                  </div>
+                  <p className="text-end text-[12px]">
+                    Visualise good health by
+                    <br />
+                    scientific prediction
+                  </p>
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
 
