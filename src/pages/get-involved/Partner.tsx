@@ -355,17 +355,17 @@ const Partner = () => {
             {[
               {
                 category: "Academic Institutions",
-                count: "15+",
+                count: "3+",
                 icon: <Building className="w-8 h-8" />,
               },
               {
                 category: "Healthcare Organizations",
-                count: "25+",
+                count: "2",
                 icon: <Globe className="w-8 h-8" />,
               },
               {
                 category: "Technology Partners",
-                count: "8+",
+                count: "2",
                 icon: <Users className="w-8 h-8" />,
               },
               {

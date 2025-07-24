@@ -106,14 +106,14 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 text-primary mt-0.5" />
                 <div className="text-sm text-muted-foreground">
-                  <div>info@alveo4p.org</div>
-                  <div>research@alveo4p.org</div>
+                  {/* <div>info@alveo4p.org</div> */}
+                  <div>alveo4p@gmaill.com</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 text-primary mt-0.5" />
                 <div className="text-sm text-muted-foreground">
-                  <div>+91 (0) 000-000-0000</div>
+                  <div>+91 696-917-5265</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -132,12 +132,19 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row items-center justify-between text-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} ALVEO 4P Charitable Trust. All rights
-              reserved.
+              © {new Date().getFullYear()}{" "}
+              ALVEO&nbsp;4P&nbsp;Charitable&nbsp;Trust.
+              All&nbsp;rights&nbsp;reserved.
             </div>
-            <div className="flex space-x-6 text-sm">
+
+            <div className="text-sm text-muted-foreground flex items-center gap-x-[0.25rem]">
+              Made with <Heart className="w-4 h-4 text-primary fill-current" />{" "}
+              by&nbsp;StaciaCorp
+            </div>
+
+            <div className="flex justify-center md:justify-end space-x-6 text-sm">
               <Link
                 to="/privacy"
                 className="text-muted-foreground hover:text-primary transition-colors"

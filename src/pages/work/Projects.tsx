@@ -180,46 +180,35 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Advanced Diagnostics",
+                title:
+                  "Integrated Respiratory Science & Disease Burden Reduction",
                 description:
-                  "AI-powered imaging and biomarker analysis for early disease detection",
+                  "Focus on reducing Disability Adjusted Life Years (DALYs) from respiratory diseases and gain a comprehensive understanding of respiratory pathophysiology while developing predictive and precision medicine within holistic and participative therapy models; AI-powered imaging and biomarker analysis for early disease detection.",
+                icon: "🫁",
+              },
+              {
+                title: "Advanced Diagnostics, AI & Biomarker Development",
+                description:
+                  "Implementation of advanced diagnostic tools and AI in clinical decision-making, identification and development of novel biomarkers, plus science profiling and state-of-the-art equipment for enhanced accuracy.",
+                icon: "🧬",
+              },
+              {
+                title: "Research, Innovation & Product Development",
+                description:
+                  "Sponsoring and conducting original research, development and patenting of research-based products and services, creation of IT-based tools for respiratory medicine, and import and deployment of specialized tools and technology.",
                 icon: "🔬",
-                projects: 5,
               },
               {
-                title: "Personalized Medicine",
+                title: "Public & Institutional Health Projects",
                 description:
-                  "Tailored treatment protocols based on individual patient profiles",
-                icon: "👤",
-                projects: 3,
+                  "Execution of public health projects at central, state, and local levels, micro-projects targeting community respiratory wellness, and infrastructure creation to support healthcare delivery and research.",
+                icon: "🏥",
               },
               {
-                title: "Community Health",
+                title: "Education, Training & Knowledge Dissemination",
                 description:
-                  "Population-based interventions and preventive care programs",
-                icon: "🏘️",
-                projects: 8,
-              },
-              {
-                title: "Digital Health",
-                description:
-                  "Technology solutions for remote monitoring and telemedicine",
-                icon: "💻",
-                projects: 4,
-              },
-              {
-                title: "Environmental Health",
-                description:
-                  "Impact of environmental factors on respiratory health outcomes",
-                icon: "🌍",
-                projects: 6,
-              },
-              {
-                title: "Policy Research",
-                description:
-                  "Evidence-based policy development for healthcare systems",
-                icon: "📋",
-                projects: 2,
+                  "Pulmonary education and professional training programs, seminars, conferences, and international symposiums, including educational collaborations and institutional partnerships.",
+                icon: "🎓",
               },
             ].map((area, index) => (
               <Card
@@ -234,9 +223,9 @@ const Projects = () => {
                   <p className="text-muted-foreground text-sm mb-3">
                     {area.description}
                   </p>
-                  <div className="text-primary font-medium text-sm">
+                  {/* <div className="text-primary font-medium text-sm">
                     {area.projects} Active Projects
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             ))}
