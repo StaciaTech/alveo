@@ -7,6 +7,13 @@ import FamWithMask from "../../assets/images/famWithmask.jpg";
 import Yoga from "../../assets/images/meditating.webp";
 import DocWithThings from "../../assets/images/docWithThings.png";
 import CurveLine from "../../assets/svg/curveLine.svg";
+import {
+  Briefcase,
+  AlertTriangle,
+  Dna,
+  HeartHandshake,
+  Blend,
+} from "lucide-react";
 
 const Overview = () => {
   return (
@@ -171,7 +178,7 @@ const Overview = () => {
             </p>
           </div>
         </section> */}
-        <section className="bg-muted/30 rounded-lg p-8 md:p-12">
+        {/* <section className="bg-muted/30 rounded-lg p-8 md:p-12">
           <div className="text-center">
             <Award className="w-12 h-12 text-primary mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-foreground mb-4">
@@ -223,6 +230,67 @@ const Overview = () => {
                   Ayurveda.
                 </li>
               </ul>
+            </div>
+          </div>
+        </section> */}
+        <section className="py-12 sm:py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Heading */}
+            <div className="text-center mb-10 sm:mb-14">
+              <Dna className="w-10 h-10 sm:w-12 sm:h-12 text-primary mx-auto mb-4" />
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+                Addressing Gaps in Chronic Respiratory Disease Management
+              </h2>
+            </div>
+
+            {/* Cards grid */}
+            <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3">
+              {[
+                {
+                  icon: <Briefcase className="w-5 h-5 text-primary" />,
+                  title: "Recurrent Admissions and Productivity Loss",
+                  text: "Chronic respiratory diseases often result in recurrent admissions, particularly debilitating for those in their productive years. This not only adversely affects the individual and their family but also results in significant economic losses for the nation.",
+                },
+                {
+                  icon: <AlertTriangle className="w-5 h-5 text-destructive" />,
+                  title: "Antibiotic Misuse and Antimicrobial Resistance",
+                  text: "The indiscriminate use of antibiotics in treating respiratory exacerbations contributes significantly to the rise of antimicrobial resistance. This cycle of sequential antibiotic escalation needs to be addressed to prevent the development of dangerous drug-resistant strains.",
+                },
+                {
+                  icon: <Dna className="w-5 h-5 text-primary" />,
+                  title: "Advancements in Diagnostics and Precision Medicine",
+                  text: "Current diagnostics primarily characterize phenotypically. To move towards precision medicine, there is a need for bio-profiling based on genetics, metabolomics, cell sorting, and proteomics to enable targeted therapies and minimize unwanted side effects.",
+                },
+                {
+                  icon: <HeartHandshake className="w-5 h-5 text-primary" />,
+                  title: "Inclusive Healthcare & Cost Reduction",
+                  text: "The exorbitant cost of healthcare can only be mitigated through inclusive health practices and the implementation of targeted therapies. Active patient participation in the recovery process, guided by medical professionals, is crucial for effective and economical healthcare.",
+                },
+                {
+                  icon: <Blend className="w-5 h-5 text-primary" />,
+                  title: "Integrated Therapies",
+                  text: "A holistic approach to recovery involves the integration of therapies from various fields. Patients may benefit from a combination of conventional medicine, physiotherapy, yoga, nutrition, and Ayurveda.",
+                },
+              ].map((item, idx) => (
+                <Card
+                  key={idx}
+                  className="shadow-sm hover:shadow-lg transition-shadow duration-200"
+                >
+                  <CardContent className="p-4 sm:p-5 lg:p-6 flex flex-col space-y-3">
+                    <div className="flex items-center space-x-2 sm:space-x-3">
+                      <div className="bg-primary/10 p-2 rounded-lg shrink-0">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground leading-tight">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.text}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>

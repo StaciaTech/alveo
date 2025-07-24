@@ -18,7 +18,8 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"> */}
+        <div className="w-[100%] lg:w-[50%] m-auto mb-16">
           {[
             {
               title: "HER♀2 – Breathing Health into Women’s Work & Life",
@@ -110,9 +111,9 @@ const Projects = () => {
                   </span> */}
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="bg-white/90 text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                  {/* <span className="bg-white/90 text-foreground px-3 py-1 rounded-full text-sm font-medium">
                     {project.category}
-                  </span>
+                  </span> */}
                 </div>
               </div>
               <CardContent className="p-6">
