@@ -68,7 +68,7 @@ const Overview = () => {
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
                   <div className="text-[14px] font-bold">Preventive</div>
-                  <p className="flex-1 text-[12px]">No entry for spilers</p>
+                  <p className="flex-1 text-[12px]">No entry for spoilers</p>
                   <div className="text-center sm:text-end font-bold">P1</div>
                 </div>
                 <div>
@@ -78,7 +78,7 @@ const Overview = () => {
                   <p className="text-end text-[12px]">
                     Am Unique
                     <br />
-                    genetics,metabolics,proteomics,
+                    genetics,metabolomics,proteomics,
                     <br />
                     cell biology, cell sorting
                   </p>
