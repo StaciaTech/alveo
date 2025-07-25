@@ -59,17 +59,17 @@ const Overview = () => {
             </p>
           </div>
           <div className="relative h-full flex items-center">
-            <img
+            {/* <img
               src={AboutImg}
               alt="Medical research"
               className=" w-[60%] m-auto"
-            />
-            {/* <div className="w-[80%] m-auto">
+            /> */}
+            <div className="w-[80%] m-auto">
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
                   <div className="text-[14px] font-bold">Preventive</div>
                   <p className="flex-1 text-[12px]">No entry for spilers</p>
-                  <div className="text-end font-bold">P1</div>
+                  <div className="text-center sm:text-end font-bold">P1</div>
                 </div>
                 <div>
                   <div className="text-end text-[14px] font-bold">
@@ -85,7 +85,7 @@ const Overview = () => {
                   <div className="text-center font-bold">P2</div>
                 </div>
               </div>
-              <div className="w-[34%] relative rounded-full m-auto aspect-square border-[0.5rem] border-[#e8e8e8] grid place-items-center">
+              <div className="w-[42%] sm:w-[34%] relative rounded-full m-auto aspect-square border-[0.5rem] border-[#e8e8e8] grid place-items-center">
                 <div>
                   <div className="text-center font-extrabold text-[1.25rem]">
                     4P
@@ -103,10 +103,9 @@ const Overview = () => {
                   <img
                     src={CurveLine}
                     alt=""
-                    className="w-full h-full scale-x-[-1] scale-y-[-1] rotate-12"
+                    className="w-full object-cover h-full scale-x-[-1] scale-y-[-1] rotate-[20deg]"
                   />
                 </div>
-
                 <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] top-1/2 -translate-y-1/2 -left-[18.5%] p-[0.3rem]">
                   <img
                     src={FamWithMask}
@@ -121,7 +120,6 @@ const Overview = () => {
                     className="w-full h-full scale-y-[-1] rotate-45"
                   />
                 </div>
-
                 <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] left-1/2 -translate-x-1/2 -bottom-[18.5%] p-[0.3rem]">
                   <img
                     src={Yoga}
@@ -129,12 +127,21 @@ const Overview = () => {
                     className="w-full h-full object-cover rounded-full "
                   />
                 </div>
-
+                <div className="absolute w-[50%] -left-[15%] -bottom-[27.5%] p-[0.3rem]">
+                  <img src={CurveLine} alt="" className="w-full h-full " />
+                </div>
                 <div className="absolute w-[35%] aspect-square rounded-full bg-[#e8e8e8] top-1/2 -translate-y-1/2 -right-[18.5%] p-[0.3rem]">
                   <img
                     src={DocWithThings}
                     alt=""
                     className="w-full h-full object-cover rounded-full object-right"
+                  />
+                </div>
+                <div className="absolute w-[50%] top-[65%]  -right-[46%]  p-[0.3rem]">
+                  <img
+                    src={CurveLine}
+                    alt=""
+                    className="w-full h-full scale-x-[-1] scale-y-[-1] rotate-[65deg]"
                   />
                 </div>
               </div>
@@ -159,7 +166,7 @@ const Overview = () => {
                   </p>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
 

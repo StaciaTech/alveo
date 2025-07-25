@@ -3,6 +3,7 @@ import { Microscope, Award, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import HerProjectImg from "../../assets/images/HerProjectImg.png";
 
 const Projects = () => {
   return (
@@ -22,12 +23,12 @@ const Projects = () => {
         <div className="w-[100%] lg:w-[50%] m-auto mb-16">
           {[
             {
-              title: "HER♀2 – Breathing Health into Women’s Work & Life",
+              title:
+                "HER♀2 – How breath is important for the number of tasks to be completed by end of day",
               category: "Women Empowerment",
               description:
                 "ALVEO 4P’s HER♀2 initiative targets working-caregiver women’s respiratory health, tackling delayed lung-condition diagnosis caused by low awareness and scarce early screening.",
-              image:
-                "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+              image: HerProjectImg,
               status: "Ongoing",
               impact:
                 "Empowers women with tools and knowledge to breathe better",
