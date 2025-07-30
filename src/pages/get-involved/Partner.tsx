@@ -33,25 +33,100 @@ const Partner = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   toast({
+  //     title: "Partnership Inquiry Submitted!",
+  //     description:
+  //       "Thank you for your interest. Our partnerships team will contact you within 5 business days.",
+  //   });
+  //   setFormData({
+  //     organizationName: "",
+  //     contactName: "",
+  //     email: "",
+  //     phone: "",
+  //     location: "",
+  //     organizationType: "",
+  //     background: "",
+  //     partnershipAreas: "",
+  //     proposal: "",
+  //     budget: "",
+  //   });
+  // };
+
+  const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_API_KEY;
+
+  type Errors = Partial<Record<keyof typeof formData, string>>;
+  const [errors, setErrors] = useState<Errors>({});
+  const [loading, setLoading] = useState(false);
+
+  const validate = (): boolean => {
+    const e: Errors = {};
+    if (!formData.organizationName.trim()) e.organizationName = "Required";
+    if (!formData.contactName.trim()) e.contactName = "Required";
+    if (!formData.email.trim()) {
+      e.email = "Required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      e.email = "Invalid email";
+    }
+    if (!formData.phone.trim()) {
+      e.phone = "Required";
+    } else if (!/^[\d\s\-+()]{7,20}$/.test(formData.phone)) {
+      e.phone = "Invalid phone";
+    }
+    if (!formData.location.trim()) e.location = "Required";
+    if (!formData.organizationType) e.organizationType = "Select one";
+
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const Error = ({ msg }: { msg?: string }) =>
+    msg ? <p className="text-xs text-destructive mt-1">{msg}</p> : null;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Partnership Inquiry Submitted!",
-      description:
-        "Thank you for your interest. Our partnerships team will contact you within 5 business days.",
-    });
-    setFormData({
-      organizationName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      location: "",
-      organizationType: "",
-      background: "",
-      partnershipAreas: "",
-      proposal: "",
-      budget: "",
-    });
+    if (!validate()) return;
+
+    setLoading(true);
+    const fd = new FormData();
+    fd.append("access_key", WEB3FORMS_KEY);
+    fd.append("subject", "New Partnership Inquiry");
+    Object.entries(formData).forEach(([k, v]) => fd.append(k, v));
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast({
+          title: "Partnership Inquiry Submitted!",
+          description:
+            "Thank you for your interest. Our partnerships team will contact you within 5 business days.",
+        });
+        setFormData({
+          organizationName: "",
+          contactName: "",
+          email: "",
+          phone: "",
+          location: "",
+          organizationType: "",
+          background: "",
+          partnershipAreas: "",
+          proposal: "",
+          budget: "",
+        });
+        setErrors({});
+      } else {
+        throw new Error();
+      }
+    } catch {
+      toast({ title: "Submission failed", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -171,6 +246,7 @@ const Partner = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* ---------- Org Name ---------- */}
                 <div className="space-y-2">
                   <Label htmlFor="organizationName">Organization Name *</Label>
                   <Input
@@ -179,10 +255,11 @@ const Partner = () => {
                     onChange={(e) =>
                       handleInputChange("organizationName", e.target.value)
                     }
-                    required
                   />
+                  <Error msg={errors.organizationName} />
                 </div>
 
+                {/* ---------- Contact Person & Email ---------- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="contactName">Contact Person *</Label>
@@ -192,8 +269,8 @@ const Partner = () => {
                       onChange={(e) =>
                         handleInputChange("contactName", e.target.value)
                       }
-                      required
                     />
+                    <Error msg={errors.contactName} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email *</Label>
@@ -204,14 +281,15 @@ const Partner = () => {
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
                       }
-                      required
                     />
+                    <Error msg={errors.email} />
                   </div>
                 </div>
 
+                {/* ---------- Phone & Location ---------- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">Phone *</Label>
                     <Input
                       id="phone"
                       value={formData.phone}
@@ -219,9 +297,10 @@ const Partner = () => {
                         handleInputChange("phone", e.target.value)
                       }
                     />
+                    <Error msg={errors.phone} />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="location">Location/Headquarters</Label>
+                    <Label htmlFor="location">Location/Headquarters *</Label>
                     <Input
                       id="location"
                       value={formData.location}
@@ -229,12 +308,15 @@ const Partner = () => {
                         handleInputChange("location", e.target.value)
                       }
                     />
+                    <Error msg={errors.location} />
                   </div>
                 </div>
 
+                {/* ---------- Org Type ---------- */}
                 <div className="space-y-2">
-                  <Label htmlFor="organizationType">Organization Type</Label>
+                  <Label htmlFor="organizationType">Organization Type *</Label>
                   <Select
+                    value={formData.organizationType}
                     onValueChange={(value) =>
                       handleInputChange("organizationType", value)
                     }
@@ -262,8 +344,10 @@ const Partner = () => {
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
+                  <Error msg={errors.organizationType} />
                 </div>
 
+                {/* ---------- Background ---------- */}
                 <div className="space-y-2">
                   <Label htmlFor="background">Organization Background</Label>
                   <Textarea
@@ -276,6 +360,7 @@ const Partner = () => {
                   />
                 </div>
 
+                {/* ---------- Partnership Areas ---------- */}
                 <div className="space-y-2">
                   <Label htmlFor="partnershipAreas">
                     Partnership Areas of Interest
@@ -290,6 +375,7 @@ const Partner = () => {
                   />
                 </div>
 
+                {/* ---------- Proposal ---------- */}
                 <div className="space-y-2">
                   <Label htmlFor="proposal">Partnership Proposal</Label>
                   <Textarea
@@ -302,11 +388,13 @@ const Partner = () => {
                   />
                 </div>
 
+                {/* ---------- Budget ---------- */}
                 <div className="space-y-2">
                   <Label htmlFor="budget">
                     Proposed Budget Range (Optional)
                   </Label>
                   <Select
+                    value={formData.budget}
                     onValueChange={(value) =>
                       handleInputChange("budget", value)
                     }
@@ -335,11 +423,13 @@ const Partner = () => {
                   </Select>
                 </div>
 
+                {/* ---------- Submit ---------- */}
                 <Button
                   type="submit"
                   className="w-full alveo-gradient text-white"
+                  disabled={loading}
                 >
-                  Submit Partnership Inquiry
+                  {loading ? "Submitting..." : "Submit Partnership Inquiry"}
                 </Button>
               </form>
             </CardContent>

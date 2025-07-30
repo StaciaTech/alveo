@@ -58,13 +58,14 @@ const Overview = () => {
               their health, the way it was meant to be.
             </p>
           </div>
-          <div className="relative h-full flex items-center">
-            {/* <img
+          <div className="relative h-full justify-center items-center space-y-[1rem]">
+            <img
               src={AboutImg}
               alt="Medical research"
               className=" w-[60%] m-auto"
-            /> */}
-            <div className="w-[80%] m-auto">
+            />
+            <p className="text-center">WHO One Health Concept</p>
+            {/* <div className="w-[80%] m-auto">
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
                   <div className="text-[14px] font-bold">Preventive</div>
@@ -166,7 +167,7 @@ const Overview = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

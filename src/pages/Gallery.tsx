@@ -21,43 +21,43 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      title: "HER – Health",
+      title: "HER – Health, Emotion, Relation Program",
       category: "community",
       image: GalleryImg1,
       description:
-        "HER – Health, emotion, Relation Program for Parikshan team ",
+        "An interactive wellness initiative for the Parikshan team featuring assessments, lectures, games, and activities focused on mind and reproductive health.",
     },
     {
       id: 2,
-      title: "Respiratory awareness skit to Children",
+      title: "Respiratory Awareness Skit at La Chatelaine School",
       category: "research",
       image: GalleryImg2,
       description:
-        "Students from MCC who performed Respiratory awareness skit to Children at La chatelaine school",
+        "MCC social work students performed an engaging skit on lung health, followed by sessions from Medway’s pulmonologist, yoga expert, and respiratory therapist on the importance of breathing.",
     },
     {
       id: 3,
-      title: "Internship at Medway Hospitals",
+      title: "Internship for Medical Social Work Students",
       category: "research",
       image: GalleryImg3,
       description:
-        "Students from MCC – MCA who did 1 month internship at Medway Hospitals. ",
+        "MCC students used skits, folk songs, and dance as creative tools to spread awareness on lung health during their internship at Medway Hospitals.",
     },
     {
       id: 4,
-      title: "Internship at Medway Hospitals",
+      title: "Internship in Data Analysis – MCC MCA Students",
       category: "research",
       image: GalleryImg4,
       description:
-        "Student from MCC – Psychology who did 1 month internship at Medway Hospitals.",
+        "A month-long internship at Medway Hospitals where MCA students from MCC gained hands-on experience in data collection and healthcare analytics.",
     },
     {
       id: 5,
-      title: "Internship at Medway Hospitals",
+      title: "Psychology Internship – MCC Student",
       category: "research",
       image: GalleryImg5,
       description:
-        "Student from MCC – Psychology who did 1 month internship at Medway Hospitals.",
+        "A one-month internship focusing on mind and respiratory health, offering practical exposure to a psychology student from MCC at Medway Hospitals.",
     },
     // {
     //   id: 3,

@@ -100,11 +100,11 @@ const Projects = () => {
               key={index}
               className="shadow-soft hover:shadow-elegant transition-all group"
             >
-              <div className="relative h-48 overflow-hidden rounded-t-lg">
+              <div className="relative h-48 overflow-hidden rounded-t-lg bg-[#fef0c5]">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
                   {/* <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">

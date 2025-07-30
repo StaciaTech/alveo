@@ -32,24 +32,95 @@ const Volunteer = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   toast({
+  //     title: "Volunteer Application Submitted!",
+  //     description:
+  //       "Thank you for your interest. We'll get back to you within 48 hours.",
+  //   });
+  //   setFormData({
+  //     name: "",
+  //     email: "",
+  //     phone: "",
+  //     location: "",
+  //     experience: "",
+  //     skills: "",
+  //     availability: "",
+  //     motivation: "",
+  //     interests: "",
+  //   });
+  // };
+
+  // after existing imports
+  const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_API_KEY;
+  type Errors = Partial<Record<keyof typeof formData, string>>;
+  const [errors, setErrors] = useState<Errors>({});
+  const [loading, setLoading] = useState(false);
+
+  const Error = ({ msg }: { msg?: string }) =>
+    msg ? <p className="text-xs text-destructive mt-1">{msg}</p> : null;
+
+  const validate = (): boolean => {
+    const e: Errors = {};
+    if (!formData.name.trim()) e.name = "Full name is required.";
+    if (!formData.email.trim()) {
+      e.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      e.email = "Enter a valid email.";
+    }
+    if (!formData.phone.trim()) {
+      e.phone = "Phone is required.";
+    } else if (!/^[\d\s\-+()]{7,20}$/.test(formData.phone)) {
+      e.phone = "Invalid phone number.";
+    }
+    if (!formData.location.trim()) e.location = "Location is required.";
+    if (!formData.availability) e.availability = "Select availability.";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Volunteer Application Submitted!",
-      description:
-        "Thank you for your interest. We'll get back to you within 48 hours.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      location: "",
-      experience: "",
-      skills: "",
-      availability: "",
-      motivation: "",
-      interests: "",
-    });
+    if (!validate()) return;
+
+    setLoading(true);
+    const fd = new FormData();
+    fd.append("access_key", WEB3FORMS_KEY);
+    fd.append("from_name", "Volunteer Application");
+    fd.append("from_email", "volunteers@alveo4p.org");
+    Object.entries(formData).forEach(([k, v]) => fd.append(k, v));
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast({
+          title: "Volunteer Application Submitted!",
+          description:
+            "Thank you for your interest. We'll get back to you within 48 hours.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          location: "",
+          experience: "",
+          skills: "",
+          availability: "",
+          motivation: "",
+          interests: "",
+        });
+        setErrors({});
+      } else throw new Error();
+    } catch {
+      toast({ title: "Submission failed", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -170,16 +241,18 @@ const Volunteer = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Name */}
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name *</Label>
                   <Input
                     id="name"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
-                    required
                   />
+                  <Error msg={errors.name} />
                 </div>
 
+                {/* Email & Phone */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="email">Email *</Label>
@@ -190,11 +263,11 @@ const Volunteer = () => {
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
                       }
-                      required
                     />
+                    <Error msg={errors.email} />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">Phone *</Label>
                     <Input
                       id="phone"
                       value={formData.phone}
@@ -202,11 +275,13 @@ const Volunteer = () => {
                         handleInputChange("phone", e.target.value)
                       }
                     />
+                    <Error msg={errors.phone} />
                   </div>
                 </div>
 
+                {/* Location */}
                 <div className="space-y-2">
-                  <Label htmlFor="location">Location</Label>
+                  <Label htmlFor="location">Location *</Label>
                   <Input
                     id="location"
                     value={formData.location}
@@ -215,11 +290,14 @@ const Volunteer = () => {
                     }
                     placeholder="City, State"
                   />
+                  <Error msg={errors.location} />
                 </div>
 
+                {/* Interests */}
                 <div className="space-y-2">
                   <Label htmlFor="interests">Areas of Interest</Label>
                   <Select
+                    value={formData.interests}
                     onValueChange={(value) =>
                       handleInputChange("interests", value)
                     }
@@ -244,6 +322,7 @@ const Volunteer = () => {
                   </Select>
                 </div>
 
+                {/* Experience */}
                 <div className="space-y-2">
                   <Label htmlFor="experience">Relevant Experience</Label>
                   <Textarea
@@ -256,6 +335,7 @@ const Volunteer = () => {
                   />
                 </div>
 
+                {/* Skills */}
                 <div className="space-y-2">
                   <Label htmlFor="skills">Skills & Interests</Label>
                   <Textarea
@@ -268,9 +348,11 @@ const Volunteer = () => {
                   />
                 </div>
 
+                {/* Availability */}
                 <div className="space-y-2">
-                  <Label htmlFor="availability">Availability</Label>
+                  <Label htmlFor="availability">Availability *</Label>
                   <Select
+                    value={formData.availability}
                     onValueChange={(value) =>
                       handleInputChange("availability", value)
                     }
@@ -289,8 +371,10 @@ const Volunteer = () => {
                       </SelectItem>
                     </SelectContent>
                   </Select>
+                  <Error msg={errors.availability} />
                 </div>
 
+                {/* Motivation */}
                 <div className="space-y-2">
                   <Label htmlFor="motivation">
                     Why do you want to volunteer with us?
@@ -305,11 +389,13 @@ const Volunteer = () => {
                   />
                 </div>
 
+                {/* Submit */}
                 <Button
                   type="submit"
                   className="w-full alveo-gradient text-white"
+                  disabled={loading}
                 >
-                  Submit Application
+                  {loading ? "Submitting..." : "Submit Application"}
                 </Button>
               </form>
             </CardContent>

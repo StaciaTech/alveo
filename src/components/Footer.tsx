@@ -119,11 +119,11 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
                 <div className="text-sm text-muted-foreground">
-                  Research Center, Medical District
+                  No.19/FF2, Nammalvar Street,
                   <br />
-                  City, State - 000000
+                  East Tambaram, Chennai - 600059
                   <br />
-                  India
+                  TamilNadu, India
                 </div>
               </div>
             </div>
