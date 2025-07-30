@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -113,8 +115,16 @@ const Navigation = () => {
                 { label: "Leadership", href: "/about/leadership" },
               ]}
             />
-
-            <NavDropdown
+            <Link
+              to="/work/projects"
+              className={`nav-link ${
+                isActive("/work/projects") ? "text-primary" : ""
+              }`}
+              onClick={ScrollToTop}
+            >
+              Our Work
+            </Link>
+            {/* <NavDropdown
               title="Our Work"
               isOpen={activeDropdown === "work"}
               onClick={() => handleDropdownClick("work")}
@@ -125,7 +135,7 @@ const Navigation = () => {
                   href: "/work/programmes-events",
                 },
               ]}
-            />
+            /> */}
 
             <NavDropdown
               title="Get Involved"
@@ -241,17 +251,21 @@ const Navigation = () => {
 
               <div className="space-y-1">
                 <button
-                  onClick={() => handleDropdownClick("work-mobile")}
+                  onClick={() => {
+                    // handleDropdownClick("work-mobile");
+                    navigate("/work/projects");
+                    setIsMenuOpen(false);
+                  }}
                   className="flex items-center justify-between w-full py-2 nav-link"
                 >
                   <span>Our Work</span>
-                  <ChevronDown
+                  {/* <ChevronDown
                     className={`w-4 h-4 transition-transform ${
                       activeDropdown === "work-mobile" ? "rotate-180" : ""
                     }`}
-                  />
+                  /> */}
                 </button>
-                {activeDropdown === "work-mobile" && (
+                {/* {activeDropdown === "work-mobile" && (
                   <div className="pl-4 space-y-1">
                     <Link
                       to="/work#projects"
@@ -268,7 +282,7 @@ const Navigation = () => {
                       Programmes & Events
                     </Link>
                   </div>
-                )}
+                )} */}
               </div>
 
               <div className="space-y-1">

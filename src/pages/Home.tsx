@@ -33,7 +33,10 @@ const Home = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/about" onClick={() => window.scrollTo(0, 0)}>
+                <Link
+                  to="/about/overview"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   Learn About Our Work
                 </Link>
               </Button>
@@ -238,7 +241,12 @@ const Home = () => {
               <Heart className="ml-2 w-5 h-5" />
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link to="/get-involved">Get Involved</Link>
+              <Link
+                to="/get-involved/volunteer"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Get Involved
+              </Link>
             </Button>
           </div>
         </div>

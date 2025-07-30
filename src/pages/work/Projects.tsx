@@ -41,60 +41,6 @@ const Projects = () => {
               timeline: "2023-2025",
               funding: "₹2.5 Crores",
             },
-            // {
-            //   title: "Rural Respiratory Health Initiative",
-            //   category: "Community Outreach",
-            //   description:
-            //     "Comprehensive healthcare delivery program targeting underserved rural populations across India.",
-            //   image:
-            //     "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            //   status: "Expanding",
-            //   impact: "50+ villages reached",
-            //   features: [
-            //     "Mobile screening units",
-            //     "Community health education",
-            //     "Telemedicine consultations",
-            //     "Traditional medicine integration",
-            //   ],
-            //   timeline: "2022-2026",
-            //   funding: "₹1.8 Crores",
-            // },
-            // {
-            //   title: "Precision Medicine Platform",
-            //   category: "Technology Innovation",
-            //   description:
-            //     "Integrated digital platform combining genomics, environmental data, and clinical records for personalized care.",
-            //   image:
-            //     "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            //   status: "Development",
-            //   impact: "Multi-center deployment",
-            //   features: [
-            //     "Genomic data integration",
-            //     "Environmental factor analysis",
-            //     "Real-time monitoring",
-            //     "Clinical decision support",
-            //   ],
-            //   timeline: "2024-2027",
-            //   funding: "₹3.2 Crores",
-            // },
-            // {
-            //   title: "Youth Researcher Program",
-            //   category: "Education & Training",
-            //   description:
-            //     "Mentorship and funding program developing the next generation of respiratory health researchers.",
-            //   image:
-            //     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            //   status: "Annual",
-            //   impact: "100+ researchers trained",
-            //   features: [
-            //     "Research fellowships",
-            //     "International collaborations",
-            //     "Patent support",
-            //     "Publication assistance",
-            //   ],
-            //   timeline: "Ongoing",
-            //   funding: "₹80 Lakhs/year",
-            // },
           ].map((project, index) => (
             <Card
               key={index}
@@ -119,7 +65,9 @@ const Projects = () => {
               </div>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {project.title}
+                  <span className="text-primary">HER♀2</span> – How breath is
+                  important for the number of tasks to be completed by end of
+                  day
                 </h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
