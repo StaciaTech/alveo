@@ -403,7 +403,7 @@ const Volunteer = () => {
         </div>
 
         {/* Volunteer Stories */}
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="text-3xl font-bold text-foreground text-center mb-8">
             Volunteer Stories
           </h2>
@@ -452,7 +452,7 @@ const Volunteer = () => {
               </Card>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Call to Action */}
         <section className="bg-muted/30 rounded-lg p-8 md:p-12 text-center">

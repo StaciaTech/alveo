@@ -112,10 +112,10 @@ const Navigation = () => {
                   label: "Board of Trustees",
                   href: "/about/board-of-trustees",
                 },
-                { label: "Leadership", href: "/about/leadership" },
+                // { label: "Leadership", href: "/about/leadership" },
               ]}
             />
-            <Link
+            {/* <Link
               to="/work/projects"
               className={`nav-link ${
                 isActive("/work/projects") ? "text-primary" : ""
@@ -123,8 +123,8 @@ const Navigation = () => {
               onClick={ScrollToTop}
             >
               Our Work
-            </Link>
-            {/* <NavDropdown
+            </Link> */}
+            <NavDropdown
               title="Our Work"
               isOpen={activeDropdown === "work"}
               onClick={() => handleDropdownClick("work")}
@@ -135,7 +135,7 @@ const Navigation = () => {
                   href: "/work/programmes-events",
                 },
               ]}
-            /> */}
+            />
 
             <NavDropdown
               title="Get Involved"
@@ -238,13 +238,13 @@ const Navigation = () => {
                     >
                       Board of Trustees
                     </Link>
-                    <Link
+                    {/* <Link
                       to="/about#leadership"
                       className="block py-2 text-sm nav-link"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Leadership
-                    </Link>
+                    </Link> */}
                   </div>
                 )}
               </div>
@@ -252,20 +252,20 @@ const Navigation = () => {
               <div className="space-y-1">
                 <button
                   onClick={() => {
-                    // handleDropdownClick("work-mobile");
-                    navigate("/work/projects");
+                    handleDropdownClick("work-mobile");
+                    // navigate("/work/projects");
                     setIsMenuOpen(false);
                   }}
                   className="flex items-center justify-between w-full py-2 nav-link"
                 >
                   <span>Our Work</span>
-                  {/* <ChevronDown
+                  <ChevronDown
                     className={`w-4 h-4 transition-transform ${
                       activeDropdown === "work-mobile" ? "rotate-180" : ""
                     }`}
-                  /> */}
+                  />
                 </button>
-                {/* {activeDropdown === "work-mobile" && (
+                {activeDropdown === "work-mobile" && (
                   <div className="pl-4 space-y-1">
                     <Link
                       to="/work#projects"
@@ -282,7 +282,7 @@ const Navigation = () => {
                       Programmes & Events
                     </Link>
                   </div>
-                )} */}
+                )}
               </div>
 
               <div className="space-y-1">
