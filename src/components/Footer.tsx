@@ -107,7 +107,7 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-primary mt-0.5" />
                 <div className="text-sm text-muted-foreground">
                   {/* <div>info@alveo4p.org</div> */}
-                  <div>alveo4p@gmaill.com</div>
+                  <div>alveo4ptrust@gmail.com</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">

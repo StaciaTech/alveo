@@ -148,7 +148,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Email Us</h3>
-                    <p className="text-muted-foreground">alveo4p@gmaill.com</p>
+                    <p className="text-muted-foreground">
+                      alveo4ptrust@gmail.comalveo4p@gmaill.com
+                    </p>
                   </div>
                 </CardContent>
               </Card>

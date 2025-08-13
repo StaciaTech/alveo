@@ -11,7 +11,8 @@ const ProgrammesEvents = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Programmes & <span className="alveo-logo-text">Events</span>
+            Our Programs
+            {/* & <span className="alveo-logo-text">Events</span> */}
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Educational initiatives and collaborative events advancing
@@ -163,10 +164,10 @@ const ProgrammesEvents = () => {
           {[
             {
               title:
-                "PRAN-ERGO – A comprehensive corporate wellness program integrating ergonomics, breath regulation, and pulmonary health",
+                "PRAYASANA – A comprehensive corporate wellness program integrating ergonomics, breath regulation, and pulmonary health",
               category: "Corporate Wellness",
               description:
-                "PRAN-ERGO enhances employee well-being by improving posture, balanced body weight distribution, and guided breath work to reduce stress, improve concentration, and boost respiratory function, supporting productivity and reducing health risks in digital, desk-bound work environments.",
+                "PRAYASANA is a comprehensive corporate wellness program designed to enhance employee well-being by integrating ergonomics, breath regulation, and pulmonary health. It focuses on creating healthier workplaces with proper posture and balanced body weight distribution, combined with simple, guided breathwork practices to reduce stress, improve concentration, and boost respiratory function. By addressing physical comfort and mental clarity together, PRAYASANA helps employees feel more energized, focused, and resilient during their workday, ultimately leading to increased productivity and reduced health risks. This program supports a culture of wellness tailored for today’s digital, desk-bound work environments, ensuring employees thrive both physically and mentally at work.",
               image: PranErgoImg,
               status: "Ongoing",
               impact:
@@ -176,6 +177,7 @@ const ProgrammesEvents = () => {
                 "Proper posture and balanced body weight distribution",
                 "Guided breath work to reduce stress and improve concentration",
                 "Support for healthier, more productive workspaces",
+                "Promotion of mental clarity and workplace culture of wellness",
               ],
               timeline: "2023-2025",
               funding: "₹2.5 Crores",
