@@ -149,7 +149,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Email Us</h3>
                     <p className="text-muted-foreground">
-                      alveo4ptrust@gmail.comalveo4p@gmaill.com
+                      alveo4ptrust@gmail.com
                     </p>
                   </div>
                 </CardContent>
