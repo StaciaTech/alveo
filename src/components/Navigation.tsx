@@ -209,7 +209,10 @@ const Navigation = () => {
                 <Link
                   to="/"
                   className="block py-2 nav-link"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setIsMenuOpen(false);
+                  }}
                 >
                   Home
                 </Link>
@@ -229,23 +232,32 @@ const Navigation = () => {
                   {activeDropdown === "about-mobile" && (
                     <div className="pl-4 space-y-1">
                       <Link
-                        to="/about#overview"
+                        to="/about/overview"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Overview
                       </Link>
                       <Link
-                        to="/about#vision-mission"
+                        to="/about/vision-mission"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Vision & Mission
                       </Link>
                       <Link
-                        to="/about#board-of-trustees"
+                        to="/about/board-of-trustees"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Board of Trustees
                       </Link>
@@ -271,16 +283,22 @@ const Navigation = () => {
                   {activeDropdown === "work-mobile" && (
                     <div className="pl-4 space-y-1">
                       <Link
-                        to="/work#projects"
+                        to="/work/projects"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Our Projects
                       </Link>
                       <Link
-                        to="/work#programmes-events"
+                        to="/work/programmes-events"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Programmes & Events
                       </Link>
@@ -303,23 +321,32 @@ const Navigation = () => {
                   {activeDropdown === "involved-mobile" && (
                     <div className="pl-4 space-y-1">
                       <Link
-                        to="/get-involved#volunteer"
+                        to="/get-involved/volunteer"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Become a Volunteer
                       </Link>
                       <Link
-                        to="/get-involved#partner"
+                        to="/get-involved/partner"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Partner with Us
                       </Link>
                       <Link
-                        to="/get-involved#careers"
+                        to="/get-involved/careers"
                         className="block py-2 text-sm nav-link"
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          setIsMenuOpen(false);
+                        }}
                       >
                         Careers
                       </Link>
@@ -330,7 +357,10 @@ const Navigation = () => {
                 <Link
                   to="/gallery"
                   className="block py-2 nav-link"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setIsMenuOpen(false);
+                  }}
                 >
                   Gallery
                 </Link>
@@ -338,7 +368,10 @@ const Navigation = () => {
                 <Link
                   to="/contact"
                   className="block py-2 nav-link"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setIsMenuOpen(false);
+                  }}
                 >
                   Contact
                 </Link>
