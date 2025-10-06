@@ -1,11 +1,37 @@
-import React from "react";
-import { Microscope, Award, ChevronRight } from "lucide-react";
+import React, { useState } from "react";
+import { Microscope, Award, ChevronRight, PlayCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import HerProjectImg from "../../assets/images/HerProjectImg.png";
+import HerProjectVid from "../../assets/videos/herProject.mp4";
 
 const Projects = () => {
+  // State to track which project video is currently playing
+  const [playingProjectIndex, setPlayingProjectIndex] = useState(null);
+
+  const projects = [
+    {
+      title:
+        "HER♀2 – How breath is important for the number of tasks to be completed by end of day",
+      category: "Women Empowerment",
+      description:
+        "ALVEO 4P’s HER♀2 initiative targets working-caregiver women’s respiratory health, tackling delayed lung-condition diagnosis caused by low awareness and scarce early screening.",
+      image: HerProjectImg,
+      video: HerProjectVid,
+      status: "Ongoing",
+      impact: "Empowers women with tools and knowledge to breathe better",
+      features: [
+        "On-site health assessments",
+        "Respiratory screenings",
+        "Lifestyle guidance delivered by pulmonology, yoga, and Ayurveda experts",
+        "Blend of modern medicine and traditional wellness",
+      ],
+      timeline: "2023-2025",
+      funding: "₹2.5 Crores",
+    },
+  ];
+
   return (
     <div className="min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,49 +45,41 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"> */}
         <div className="w-[100%] lg:w-[50%] m-auto mb-16">
-          {[
-            {
-              title:
-                "HER♀2 – How breath is important for the number of tasks to be completed by end of day",
-              category: "Women Empowerment",
-              description:
-                "ALVEO 4P’s HER♀2 initiative targets working-caregiver women’s respiratory health, tackling delayed lung-condition diagnosis caused by low awareness and scarce early screening.",
-              image: HerProjectImg,
-              status: "Ongoing",
-              impact:
-                "Empowers women with tools and knowledge to breathe better",
-              features: [
-                "On-site health assessments",
-                "Respiratory screenings",
-                "Lifestyle guidance delivered by pulmonology, yoga, and Ayurveda experts",
-                "Blend of modern medicine and traditional wellness",
-              ],
-              timeline: "2023-2025",
-              funding: "₹2.5 Crores",
-            },
-          ].map((project, index) => (
+          {projects.map((project, index) => (
             <Card
               key={index}
               className="shadow-soft hover:shadow-elegant transition-all group"
             >
-              <div className="relative h-48 overflow-hidden rounded-t-lg bg-[#fef0c5]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 left-4">
-                  {/* <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {project.status}
-                  </span> */}
-                </div>
-                <div className="absolute top-4 right-4">
-                  {/* <span className="bg-white/90 text-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    {project.category}
-                  </span> */}
-                </div>
+              <div className="relative h-72 overflow-hidden rounded-t-lg bg-[#fef0c5]">
+                {playingProjectIndex === index ? (
+                  // If playing, render the video player
+                  <video
+                    src={project.video}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    controls
+                    onEnded={() => setPlayingProjectIndex(null)} // Optional: reverts to thumbnail when video ends
+                  />
+                ) : (
+                  // Otherwise, show the thumbnail and play button
+                  <>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-contain transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all duration-300">
+                      <button
+                        onClick={() => setPlayingProjectIndex(index)}
+                        className="text-white/80 hover:text-white transform transition-transform duration-300 group-hover:scale-110"
+                        aria-label="Play video"
+                      >
+                        <PlayCircle className="w-20 h-20" />
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-2">
@@ -72,25 +90,6 @@ const Projects = () => {
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
-
-                {/* <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                  <div>
-                    <span className="font-medium text-foreground">
-                      Timeline:
-                    </span>
-                    <span className="text-muted-foreground ml-2">
-                      {project.timeline}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="font-medium text-foreground">
-                      Funding:
-                    </span>
-                    <span className="text-muted-foreground ml-2">
-                      {project.funding}
-                    </span>
-                  </div>
-                </div> */}
 
                 <div className="mb-4">
                   <div className="flex items-center space-x-2 text-sm text-primary font-medium">
@@ -110,13 +109,6 @@ const Projects = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* <Button
-                  variant="outline"
-                  className="w-full group-hover:bg-primary group-hover:text-white transition-colors"
-                >
-                  View Details
-                </Button> */}
               </CardContent>
             </Card>
           ))}
@@ -173,9 +165,6 @@ const Projects = () => {
                   <p className="text-muted-foreground text-sm mb-3">
                     {area.description}
                   </p>
-                  {/* <div className="text-primary font-medium text-sm">
-                    {area.projects} Active Projects
-                  </div> */}
                 </CardContent>
               </Card>
             ))}

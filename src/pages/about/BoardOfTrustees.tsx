@@ -82,9 +82,9 @@ const BoardOfTrustees = () => {
                   {member.name}
                 </h3>
                 <p className="text-primary font-medium mb-2">{member.role}</p>
-                <p className="text-sm text-muted-foreground mb-3">
+                {/* <p className="text-sm text-muted-foreground mb-3">
                   {member.specialty}
-                </p>
+                </p> */}
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {member.bio}
                 </p>
